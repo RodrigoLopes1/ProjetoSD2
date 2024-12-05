@@ -4,7 +4,8 @@ use ieee.numeric_bit.all;
 entity ram is
     generic (
         addressSize : natural := 5;
-        wordSize : natural := 8
+        wordSize : natural := 8;
+        datFileName : string := "conteudo_ram_af11_p1e4_carga.dat"
     );
     port (
         ck : in bit;

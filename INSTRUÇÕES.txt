@@ -1,0 +1,8 @@
+Vou resumir o trampo.
+O objetivo desse trabalho é a construção de um polilegV8 que é uma versão mais simples do polileg que já é uma versão mais simples de um processador. 
+Basicamente ele é um processador que só executa processos do tipo "R", ou seja "ADD, SUB, AND e OR" 
+O EP é dividido em itens (P1, P2...) que por sua vez se divide em subitens (E1, E2...) somente a entrega dos itens da P4 são obrigatórias, porém não adianta fazer só ela, o trabalho é basicamente 
+feito nas outras parte, na P4 é só juntar tudo. Então não tem muito jeito de fugir. 
+
+----------------------- P1
+A parte 1 é a mais completa, mas falta um detalhe 

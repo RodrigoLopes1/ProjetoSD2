@@ -6,7 +6,7 @@ entity rom_arquivo_generica is
     generic (
         addressSize : natural := 5;
         wordSize : natural := 8;
-        datFileName : string := "conteudo_rom_ativ_02_carga.dat"
+        datFileName : string := "conteudo_rom_af11_p1e2_carga . dat"
     );
     port (
         addr : in bit_vector(addressSize - 1 downto 0);

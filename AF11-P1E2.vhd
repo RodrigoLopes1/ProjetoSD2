@@ -26,7 +26,7 @@ architecture part_2 of rom_arquivo is
         return temporary_memory;
     end inicializa;
 
-    signal memoria : memory_t := inicializa("conteudo_rom_ativ_02_carga.dat");
+    signal memoria : memory_t := inicializa("conteudo_rom_af11_p1e2_carga.dat");
 
 begin
     data <= memoria(to_integer(unsigned(addr)));

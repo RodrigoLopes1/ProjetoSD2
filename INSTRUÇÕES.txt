@@ -5,4 +5,9 @@ O EP é dividido em itens (P1, P2...) que por sua vez se divide em subitens (E1,
 feito nas outras parte, na P4 é só juntar tudo. Então não tem muito jeito de fugir. 
 
 ----------------------- P1
-A parte 1 é a mais completa, mas falta um detalhe 
+A parte 1 é a mais completa, mas falta a P1E5 que infelizmente é a mais importante
+Essa parte é sobre memórias, o objetivo final é contruir as memorias de intruções e memorias de dados, apesar disso não estar feito, basta usar o modelo feito na
+P1E4 e meio que só trocar so conteudos e tamanhos, os arquivos de conteudo (.dat) também estão no repositório. 
+----------------------- P2
+
+

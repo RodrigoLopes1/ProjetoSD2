@@ -1,12 +1,9 @@
---Essa parte não ta feita, e infelizmente é a parte mais importante-- 
+-- Implementacao da Memoria de Instrucoes
+library ieee;
+use ieee.numeric_bit.all;
+use std.textio.all;
 
---5 Implemente os componentes em VHDL correspondentes à
---Memória de Instruções e à Memória de Dados do PoliLEGv8. A
---Memória de Instruções deve ter 256 endereços com palavras de 32
---bits, ao passo que a Memória de Dados deve ter 256 endereços com
---palavras de 64 bits. Cada componente deve respeitar as entidades a seguir.
-
-entity memoriaInstrucoes is
+entity memoriaInstrucoes is 
     generic (
         datFileName : string := "conteudo_memInstr_af11_p1e5_carga.dat"
     );
@@ -15,6 +12,32 @@ entity memoriaInstrucoes is
         data : out bit_vector(31 downto 0)
     );
 end entity memoriaInstrucoes;
+
+architecture Behavioral of memoriaInstrucoes is
+    type memory_array is array (0 to 255) of bit_vector(31 downto 0);
+    signal mem : memory_array;
+begin
+    process
+    	file mem_file : text open read_mode is datFileName;
+        variable line_content : line;
+        variable temp_data : bit_vector(31 downto 0);
+    begin
+        for i in 0 to 255 loop
+            readline(mem_file, line_content);
+            read(line_content, temp_data);
+            mem(i) <= temp_data;
+        end loop;
+        wait;
+    end process;
+
+    data <= mem(to_integer(unsigned(addr)));
+
+end architecture Behavioral;
+
+-- Implementação da Memoria de Dados
+library ieee;
+use ieee.numeric_bit.all;
+use std.textio.all;
 
 entity memoriaDados is
     generic (
@@ -29,4 +52,37 @@ entity memoriaDados is
     );
 end entity memoriaDados;
 
-  
+architecture Behavioral of memoriaDados is
+    type memory_array is array (0 to 255) of bit_vector(63 downto 0);
+    signal mem : memory_array;
+    signal addr_int : integer;
+
+begin
+    process
+    	file mem_file : text open read_mode is datFileName;
+        variable line_content : line;
+        variable temp_data : bit_vector(63 downto 0);
+    begin
+        for i in 0 to 255 loop
+            readline(mem_file, line_content);
+            read(line_content, temp_data);
+            mem(i) <= temp_data;
+        end loop;
+        wait;
+    end process;
+
+    addr_int <= to_integer(unsigned(addr));
+
+    process(clk)
+    begin
+        if rising_edge(clk) then
+            if wr = '1' then
+                mem(addr_int) <= data_i;
+            end if;
+        end if;
+    end process;
+
+    data_o <= mem(addr_int);
+
+end architecture Behavioral;
+

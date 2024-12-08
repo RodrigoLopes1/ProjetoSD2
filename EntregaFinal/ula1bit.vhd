@@ -1,12 +1,20 @@
-entity alu1bit is
+entity ula1bit is
     port(
-        a, b, less, cin: in bit;
-        result, cout, set, overflow: out bit;
-        ainvert, binvert: in bit;
-        operation: in bit_vector(1 downto 0)
+        a : in bit;
+        b : in bit;
+        cin: in bit;
+        ainvert : in bit;
+        binvert: in bit;
+        operation: in bit_vector(1 downto 0);
+        result : out bit;
+        overflow: out bit;
+        cout: out bit;
+        
+        less: in bit;
+        set: out bit
     );
 end entity;
-architecture arch of alu1bit is
+architecture arch of ula1bit is
 
     component fa1bit is
         port(
